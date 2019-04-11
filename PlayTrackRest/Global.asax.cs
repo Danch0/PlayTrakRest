@@ -18,6 +18,9 @@ namespace PlayTrackRest
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //autoinicio de log4net
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }
