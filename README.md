@@ -5,7 +5,7 @@ Uso del API
 
 Metodo: GET api/Dispositivos
 Llamada: http://playtrackrest.azurewebsites.net/api/Dispositivos
-Parametros resibidos: Ninguno.
+Parametros recibidos: Ninguno.
 Respuesta: Json de la clase RespuestaBase, para mas informacion http://playtrackrest.azurewebsites.net/Help.
     {
         "Mensaje": "OK",
