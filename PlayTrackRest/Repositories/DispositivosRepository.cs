@@ -7,5 +7,11 @@ namespace PlayTrackRest.Repositories
 {
     public class DispositivosRepository
     {
+        internal static IQueryable<DISPOSITIVO> ObtenerTodos()
+        {
+            play0dbEntities dbEntities = new play0dbEntities();
+
+            return dbEntities.DISPOSITIVOS.Select(x=> x);
+        }
     }
 }

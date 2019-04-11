@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PlayTrackRest.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace PlayTrackRest.Controllers
 {
@@ -13,10 +13,14 @@ namespace PlayTrackRest.Controllers
     /// </summary>
     public class DispositivosController : ApiController
     {
-        public string Get()
+        /// <summary>
+        /// Obtiene todos los elementos de Dispositivos
+        /// </summary>
+        /// <returns>Regresa un json con la estructura de la clase response, donde data el un arreglo con todos los elementos de Dispositivos</returns>
+        public IHttpActionResult Get()
         {
-            string respuesta = "Hola mundo";
-            return respuesta;
+            RespuestaBase respuesta = DispositivosModel.ObtenerTodos();
+            return Json(new { respuesta });
         }
     }
 }
