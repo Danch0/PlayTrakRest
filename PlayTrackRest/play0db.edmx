@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="play0dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="COMPONENTES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="registro" Type="datetime" />
+          <Property Name="dispositivo_id" Type="int" />
+        </EntityType>
+        <EntityType Name="DISPOSITIVOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="registro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="REGISROS_USOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dt_inicio" Type="datetime" />
+          <Property Name="dt_fin" Type="datetime" />
+          <Property Name="dispositivo_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_componentes_dispositivo_id">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="0..1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="dispositivo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_uso_dispositivo_id">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="0..1" />
+          <End Role="REGISROS_USOS" Type="Self.REGISROS_USOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REGISROS_USOS">
+              <PropertyRef Name="dispositivo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="play0dbModelStoreContainer">
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REGISROS_USOS" EntityType="Self.REGISROS_USOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_componentes_dispositivo_id" Association="Self.FK_componentes_dispositivo_id">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_uso_dispositivo_id" Association="Self.FK_registro_uso_dispositivo_id">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="REGISROS_USOS" EntitySet="REGISROS_USOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="play0dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="COMPONENTE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="registro" Type="DateTime" Precision="3" />
+          <Property Name="dispositivo_id" Type="Int32" />
+          <NavigationProperty Name="DISPOSITIVO" Relationship="Self.FK_componentes_dispositivo_id" FromRole="COMPONENTES" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <EntityType Name="DISPOSITIVO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="registro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="COMPONENTES" Relationship="Self.FK_componentes_dispositivo_id" FromRole="DISPOSITIVOS" ToRole="COMPONENTES" />
+          <NavigationProperty Name="REGISROS_USOS" Relationship="Self.FK_registro_uso_dispositivo_id" FromRole="DISPOSITIVOS" ToRole="REGISROS_USOS" />
+        </EntityType>
+        <EntityType Name="REGISROS_USOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dt_inicio" Type="DateTime" Precision="3" />
+          <Property Name="dt_fin" Type="DateTime" Precision="3" />
+          <Property Name="dispositivo_id" Type="Int32" />
+          <NavigationProperty Name="DISPOSITIVO" Relationship="Self.FK_registro_uso_dispositivo_id" FromRole="REGISROS_USOS" ToRole="DISPOSITIVOS" />
+        </EntityType>
+        <Association Name="FK_componentes_dispositivo_id">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVO" Multiplicity="0..1" />
+          <End Role="COMPONENTES" Type="Self.COMPONENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="COMPONENTES">
+              <PropertyRef Name="dispositivo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_uso_dispositivo_id">
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVO" Multiplicity="0..1" />
+          <End Role="REGISROS_USOS" Type="Self.REGISROS_USOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DISPOSITIVOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REGISROS_USOS">
+              <PropertyRef Name="dispositivo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="play0dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTE" />
+          <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVO" />
+          <EntitySet Name="REGISROS_USOS" EntityType="Self.REGISROS_USOS" />
+          <AssociationSet Name="FK_componentes_dispositivo_id" Association="Self.FK_componentes_dispositivo_id">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_uso_dispositivo_id" Association="Self.FK_registro_uso_dispositivo_id">
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
+            <End Role="REGISROS_USOS" EntitySet="REGISROS_USOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="play0dbModelStoreContainer" CdmEntityContainer="play0dbEntities">
+          <EntitySetMapping Name="COMPONENTES">
+            <EntityTypeMapping TypeName="play0dbModel.COMPONENTE">
+              <MappingFragment StoreEntitySet="COMPONENTES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="registro" ColumnName="registro" />
+                <ScalarProperty Name="dispositivo_id" ColumnName="dispositivo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DISPOSITIVOS">
+            <EntityTypeMapping TypeName="play0dbModel.DISPOSITIVO">
+              <MappingFragment StoreEntitySet="DISPOSITIVOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="registro" ColumnName="registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGISROS_USOS">
+            <EntityTypeMapping TypeName="play0dbModel.REGISROS_USOS">
+              <MappingFragment StoreEntitySet="REGISROS_USOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dt_inicio" ColumnName="dt_inicio" />
+                <ScalarProperty Name="dt_fin" ColumnName="dt_fin" />
+                <ScalarProperty Name="dispositivo_id" ColumnName="dispositivo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
