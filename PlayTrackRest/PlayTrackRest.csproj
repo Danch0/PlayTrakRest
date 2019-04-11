@@ -195,6 +195,7 @@
     <Compile Include="COMPONENTE.cs">
       <DependentUpon>play0db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DispositivosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DISPOSITIVO.cs">
@@ -203,6 +204,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DispositivosModel.cs" />
     <Compile Include="play0db.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,6 +224,7 @@
     <Compile Include="REGISROS_USOS.cs">
       <DependentUpon>play0db.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\DispositivosRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -296,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
