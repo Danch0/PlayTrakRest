@@ -7,7 +7,7 @@ namespace PlayTrackRest.Repositories
 {
     public class DispositivosRepository
     {
-        internal static IQueryable<DISPOSITIVO> ObtenerTodos()
+        internal static IEnumerable<DISPOSITIVO> ObtenerTodos()
         {
             play0dbEntities dbEntities = new play0dbEntities();
 

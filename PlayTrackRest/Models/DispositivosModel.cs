@@ -19,17 +19,28 @@ namespace PlayTrackRest.Models
 
         internal static RespuestaBase ObtenerTodos()
         {
+            log.Info("Llamada al metodo");
             RespuestaBase respuesta = new RespuestaBase();
-            DispositivosModel datos = new DispositivosModel();
+            List<DispositivosModel> datos = new List<DispositivosModel>();
             try
             {
-                IQueryable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerTodos();
-                datos = BaseModel.GetModel<DispositivosModel>(dispositivos, new DispositivosModel());
-                respuesta.datos = datos;
+                IEnumerable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerTodos();
+                foreach (DISPOSITIVO dispositivo in dispositivos)
+                {
+                    DispositivosModel dispositivo_temp = null;
+                    dispositivo_temp = BaseModel.GetModel<DispositivosModel>(dispositivo, new DispositivosModel());
+                    if (dispositivo_temp.id != 0)
+                    {
+                        datos.Add(dispositivo_temp);
+                    }
+                }
+                respuesta.Mensaje = "OK";
+                respuesta.Estatus = true;
+                respuesta.Datos = datos;
             }
             catch (Exception ex)
             {
-                log.Error("ObtenerTodos--> mensage: " + ex.Message);
+                log.Error("ObtenerTodos--> mensage: " + respuesta.Mensaje, ex);
             }
             return respuesta;
         }

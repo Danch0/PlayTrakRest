@@ -9,18 +9,18 @@ using System.Web.Http;
 namespace PlayTrackRest.Controllers
 {
     /// <summary>
-    /// Clase que manejara la informacion correspondiente a los dispositivos
+    /// Controlador para el manejo de los dispositivos.
     /// </summary>
     public class DispositivosController : ApiController
     {
         /// <summary>
-        /// Obtiene todos los elementos de Dispositivos
+        /// Obtiene todos los elementos dispositivos.
         /// </summary>
-        /// <returns>Regresa un json con la estructura de la clase response, donde data el un arreglo con todos los elementos de Dispositivos</returns>
-        public IHttpActionResult Get()
+        /// <returns>Regresa un objeto de la clase RespuestaBase, <see cref="IDocumentationProvider"/> detalles de las clases devueltas.</returns>
+        public RespuestaBase Get()
         {
             RespuestaBase respuesta = DispositivosModel.ObtenerTodos();
-            return Json(new { respuesta });
+            return respuesta;
         }
     }
 }

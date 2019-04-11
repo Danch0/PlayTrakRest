@@ -5,8 +5,18 @@ using System.Web;
 
 namespace PlayTrackRest.Models
 {
+    /// <summary>
+    /// Representa un modelo generico con metodos comunes de la aplicacion.
+    /// </summary>
     public class BaseModel
     {
+        /// <summary>
+        /// Crea un objeto del tipo especificado a partir de otro objeto base. Debe concidir tipo y nombre de los parametros de los dos objetos.
+        /// </summary>
+        /// <typeparam name="T">Tipo del objeto devuelto.</typeparam>
+        /// <param name="entity">Objeto base</param>
+        /// <param name="model">Objeto creado a partir de objeto base</param>
+        /// <returns>Un objeto tipado y creado a partir del objeto base.</returns>
         public static T GetModel<T>(Object entity, Object model)
         {
             if (entity == null)
@@ -24,18 +34,31 @@ namespace PlayTrackRest.Models
             return (T)model;
         }
     }
-
+    /// <summary>
+    /// Representa la estructura con la que responde la aplicacion.
+    /// </summary>
     public class RespuestaBase
     {
-        public string mensaje { get; set; }
-        public object datos { get; set; }
-        public bool estatus { get; set; }
-
+        /// <summary>
+        /// Mensaje del estatus de la respuesta, en caso de todo estar bien retornara OK.
+        /// </summary>
+        public string Mensaje { get; set; }
+        /// <summary>
+        /// Los datos resultantes de la respuesta.
+        /// </summary>
+        public object Datos { get; set; }
+        /// <summary>
+        /// Estatus de la respuesta, False -> con error, True -> todo bien.
+        /// </summary>
+        public bool Estatus { get; set; }
+        /// <summary>
+        /// Constructor con los datos por defecto.
+        /// </summary>
         public RespuestaBase()
         {
-            mensaje = "Error no manejado";
-            datos = null;
-            estatus = false;
+            Mensaje = "OK";
+            Estatus = true;
+            Datos = null;
         }
     }
 }

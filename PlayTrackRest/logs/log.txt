@@ -1,0 +1,2 @@
+INFO  2019-04-11 13:31:52,505 71488ms DispositivosModel      ObtenerTodos       - Llamda el metodo ObtenerTodos.
+INFO  2019-04-11 14:35:57,847 61535ms DispositivosModel      ObtenerTodos       - Llamada al metodo
