@@ -18,8 +18,8 @@ namespace PlayTrackRest.Models
         /// Crea un objeto del tipo especificado a partir de otro objeto base. Debe concidir tipo y nombre de los parametros de los dos objetos.
         /// </summary>
         /// <typeparam name="T">Tipo del objeto devuelto.</typeparam>
-        /// <param name="entity">Objeto base</param>
-        /// <param name="model">Objeto creado a partir de objeto base</param>
+        /// <param name="entity">Objeto base.</param>
+        /// <param name="model">Objeto tipado a partir de objeto base.</param>
         /// <returns>Un objeto tipado y creado a partir del objeto base.</returns>
         public static T GetModel<T>(Object entity, Object model)
         {
@@ -47,7 +47,14 @@ namespace PlayTrackRest.Models
             }
             return (T)model;
         }
-        
+        /// <summary>
+        /// Crear una lista del tipo especificado a partir de otra lista base.
+        /// </summary>
+        /// <typeparam name="T">Tipo del objeto dentro de la lista devuelta.</typeparam>
+        /// <param name="entity_list">Lista base de la que se tomaran los objetos.</param>
+        /// <param name="model_list">Lista a la que se agregaran los objtos tipados.</param>
+        /// <param name="model">Objeto del cual se tomara el tipo.</param>
+        /// <returns>Lita con objetos tipados y creada a partir de la lista base.</returns>
         public static List<T> GetModelList<T>(object entity_list, List<T> model_list, object model)
         {
             if (entity_list == null)
