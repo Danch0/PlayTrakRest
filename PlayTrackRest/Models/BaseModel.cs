@@ -1,4 +1,6 @@
-﻿using System;
+﻿using log4net;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,8 @@ namespace PlayTrackRest.Models
     /// </summary>
     public class BaseModel
     {
+        static ILog log = log4net.LogManager.GetLogger(typeof(BaseModel));
+        static Object Generic_object;
         /// <summary>
         /// Crea un objeto del tipo especificado a partir de otro objeto base. Debe concidir tipo y nombre de los parametros de los dos objetos.
         /// </summary>
@@ -21,17 +25,50 @@ namespace PlayTrackRest.Models
         {
             if (entity == null)
                 return (T)model;
-            var modelProperties = model.GetType().GetProperties();
-            foreach (var prop in entity.GetType().GetProperties())
+            try
             {
-                var thisProp = modelProperties.FirstOrDefault(n => n.Name == prop.Name && n.PropertyType == prop.PropertyType);
-                if (thisProp != null)
+                Type objectType = model.GetType();
+                var new_model = Activator.CreateInstance(objectType);
+                var modelProperties = model.GetType().GetProperties();
+                foreach (var prop in entity.GetType().GetProperties())
                 {
-                    var value = prop.GetValue(entity, null);
-                    thisProp.SetValue(model, value, null);
+                    var thisProp = modelProperties.FirstOrDefault(n => n.Name == prop.Name && n.PropertyType == prop.PropertyType);
+                    if (thisProp != null)
+                    {
+                        var value = prop.GetValue(entity, null);
+                        thisProp.SetValue(new_model, value, null);
+                    }
                 }
+                return (T)new_model;
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error no manejado.", ex);
             }
             return (T)model;
+        }
+        
+        public static List<T> GetModelList<T>(object entity_list, List<T> model_list, object model)
+        {
+            if (entity_list == null)
+                return (List<T>)model_list;
+            try
+            {
+                IEnumerable enumerable = entity_list as IEnumerable;
+                foreach (var item in enumerable)
+                {
+                    var new_item = GetModel<T>(item, model);
+                    if (new_item != null)
+                    {
+                        model_list.Add(new_item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error no manejado.", ex);
+            }
+            return (List<T>)model_list;
         }
     }
     /// <summary>
