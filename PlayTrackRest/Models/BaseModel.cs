@@ -105,4 +105,15 @@ namespace PlayTrackRest.Models
             Datos = null;
         }
     }
+    /// <summary>
+    /// Representa un enumerador de los tipos de dispositivos.
+    /// </summary>
+    enum TiposDispositivo
+    {
+        NONE = 0,
+        TRAGAMONEDAS = 1,
+        MESA_DE_BLACKJACK = 2,
+        BINGO = 3,
+        MAQUINA_SALDO = 4
+    }
 }

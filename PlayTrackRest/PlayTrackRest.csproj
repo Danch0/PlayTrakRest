@@ -230,6 +230,9 @@
       <DependentUpon>play0db.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\DispositivosRepository.cs" />
+    <Compile Include="TIPOS_DISPOSITIVO.cs">
+      <DependentUpon>play0db.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\XmlDocument.xml">

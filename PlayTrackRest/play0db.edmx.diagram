@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="play0dbModel.REGISROS_USOS" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <AssociationConnector Association="play0dbModel.FK_componentes_dispositivo_id" ManuallyRouted="false" />
         <AssociationConnector Association="play0dbModel.FK_registro_uso_dispositivo_id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="play0dbModel.TIPOS_DISPOSITIVO" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="play0dbModel.FK_dispositivos_tipo_id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

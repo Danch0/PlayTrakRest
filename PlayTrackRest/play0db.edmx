@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="play0dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="play0dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COMPONENTES">
           <Key>
             <PropertyRef Name="id" />
@@ -22,6 +22,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" />
           <Property Name="registro" Type="datetime" />
+          <Property Name="tipo_id" Type="int" />
         </EntityType>
         <EntityType Name="REGISROS_USOS">
           <Key>
@@ -32,6 +33,13 @@
           <Property Name="dt_fin" Type="datetime" />
           <Property Name="dispositivo_id" Type="int" />
         </EntityType>
+        <EntityType Name="TIPOS_DISPOSITIVO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="100" />
+        </EntityType>
         <Association Name="FK_componentes_dispositivo_id">
           <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="0..1" />
           <End Role="COMPONENTES" Type="Self.COMPONENTES" Multiplicity="*" />
@@ -41,6 +49,18 @@
             </Principal>
             <Dependent Role="COMPONENTES">
               <PropertyRef Name="dispositivo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dispositivos_tipo_id">
+          <End Role="TIPOS_DISPOSITIVO" Type="Self.TIPOS_DISPOSITIVO" Multiplicity="0..1" />
+          <End Role="DISPOSITIVOS" Type="Self.DISPOSITIVOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_DISPOSITIVO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DISPOSITIVOS">
+              <PropertyRef Name="tipo_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -60,17 +80,21 @@
           <EntitySet Name="COMPONENTES" EntityType="Self.COMPONENTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DISPOSITIVOS" EntityType="Self.DISPOSITIVOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REGISROS_USOS" EntityType="Self.REGISROS_USOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPOS_DISPOSITIVO" EntityType="Self.TIPOS_DISPOSITIVO" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_componentes_dispositivo_id" Association="Self.FK_componentes_dispositivo_id">
             <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
             <End Role="COMPONENTES" EntitySet="COMPONENTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dispositivos_tipo_id" Association="Self.FK_dispositivos_tipo_id">
+            <End Role="TIPOS_DISPOSITIVO" EntitySet="TIPOS_DISPOSITIVO" />
+            <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
           </AssociationSet>
           <AssociationSet Name="FK_registro_uso_dispositivo_id" Association="Self.FK_registro_uso_dispositivo_id">
             <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
             <End Role="REGISROS_USOS" EntitySet="REGISROS_USOS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="play0dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -94,6 +118,8 @@
           <Property Name="registro" Type="DateTime" Precision="3" />
           <NavigationProperty Name="COMPONENTES" Relationship="Self.FK_componentes_dispositivo_id" FromRole="DISPOSITIVOS" ToRole="COMPONENTES" />
           <NavigationProperty Name="REGISROS_USOS" Relationship="Self.FK_registro_uso_dispositivo_id" FromRole="DISPOSITIVOS" ToRole="REGISROS_USOS" />
+          <Property Name="tipo_id" Type="Int32" />
+          <NavigationProperty Name="TIPOS_DISPOSITIVO" Relationship="play0dbModel.FK_dispositivos_tipo_id" FromRole="DISPOSITIVO" ToRole="TIPOS_DISPOSITIVO" />
         </EntityType>
         <EntityType Name="REGISROS_USOS">
           <Key>
@@ -141,7 +167,32 @@
             <End Role="DISPOSITIVOS" EntitySet="DISPOSITIVOS" />
             <End Role="REGISROS_USOS" EntitySet="REGISROS_USOS" />
           </AssociationSet>
+          <EntitySet Name="TIPOS_DISPOSITIVO" EntityType="play0dbModel.TIPOS_DISPOSITIVO" />
+          <AssociationSet Name="FK_dispositivos_tipo_id" Association="play0dbModel.FK_dispositivos_tipo_id">
+            <End Role="TIPOS_DISPOSITIVO" EntitySet="TIPOS_DISPOSITIVO" />
+            <End Role="DISPOSITIVO" EntitySet="DISPOSITIVOS" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TIPOS_DISPOSITIVO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DISPOSITIVOS" Relationship="play0dbModel.FK_dispositivos_tipo_id" FromRole="TIPOS_DISPOSITIVO" ToRole="DISPOSITIVO" />
+        </EntityType>
+        <Association Name="FK_dispositivos_tipo_id">
+          <End Type="play0dbModel.TIPOS_DISPOSITIVO" Role="TIPOS_DISPOSITIVO" Multiplicity="0..1" />
+          <End Type="play0dbModel.DISPOSITIVO" Role="DISPOSITIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOS_DISPOSITIVO">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DISPOSITIVO">
+              <PropertyRef Name="tipo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -162,6 +213,7 @@
           <EntitySetMapping Name="DISPOSITIVOS">
             <EntityTypeMapping TypeName="play0dbModel.DISPOSITIVO">
               <MappingFragment StoreEntitySet="DISPOSITIVOS">
+                <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="registro" ColumnName="registro" />
@@ -175,6 +227,14 @@
                 <ScalarProperty Name="dt_inicio" ColumnName="dt_inicio" />
                 <ScalarProperty Name="dt_fin" ColumnName="dt_fin" />
                 <ScalarProperty Name="dispositivo_id" ColumnName="dispositivo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOS_DISPOSITIVO">
+            <EntityTypeMapping TypeName="play0dbModel.TIPOS_DISPOSITIVO">
+              <MappingFragment StoreEntitySet="TIPOS_DISPOSITIVO">
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

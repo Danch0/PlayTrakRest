@@ -28,5 +28,6 @@ namespace PlayTrackRest
         public virtual DbSet<COMPONENTE> COMPONENTES { get; set; }
         public virtual DbSet<DISPOSITIVO> DISPOSITIVOS { get; set; }
         public virtual DbSet<REGISROS_USOS> REGISROS_USOS { get; set; }
+        public virtual DbSet<TIPOS_DISPOSITIVO> TIPOS_DISPOSITIVO { get; set; }
     }
 }

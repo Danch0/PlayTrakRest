@@ -41,15 +41,16 @@ namespace PlayTrackRest.Models
         /// Obtiene los n primeros dispositivos.
         /// </summary>
         /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+        /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
         /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
-        internal virtual RespuestaBase ObtenerTodos(int limit = 1000)
+        internal virtual RespuestaBase ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
         {
             log.Info("Llamada al metodo");
             RespuestaBase respuesta = new RespuestaBase();
             List<DispositivosModel> datos = new List<DispositivosModel>();
             try
             {
-                IEnumerable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerTodos();
+                IEnumerable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerTodos(tipo_dispositivo, limit);
                 foreach (DISPOSITIVO dispositivo in dispositivos)
                 {
                     DispositivosModel dispositivo_temp = BaseModel.GetModel<DispositivosModel>(dispositivo, new DispositivosModel());
