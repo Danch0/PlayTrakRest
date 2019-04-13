@@ -16,10 +16,11 @@ namespace PlayTrackRest.Controllers
         /// <summary>
         /// Obtiene todos los elementos dispositivos.
         /// </summary>
-        /// <returns>Regresa un objeto de la clase RespuestaBase, <see cref="IDocumentationProvider"/> detalles de las clases devueltas.</returns>
-        public RespuestaBase Get()
+        /// <returns>Regresa un objeto de la clase RespuestaBase</returns>
+        public RespuestaBase GetDispositivos()
         {
-            RespuestaBase respuesta = DispositivosModel.ObtenerTodos();
+            DispositivosModel Dispositivos = new DispositivosModel();
+            RespuestaBase respuesta = Dispositivos.ObtenerTodos();
             return respuesta;
         }
     }

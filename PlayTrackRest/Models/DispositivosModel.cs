@@ -8,17 +8,41 @@ using System.Web;
 
 namespace PlayTrackRest.Models
 {
+    /// <summary>
+    /// Representa el modelo para el manejo de la tabla DISPOSITIVOS.
+    /// </summary>
     public class DispositivosModel
     {
+        /// <summary>
+        /// Identificador primario del dispositivo.
+        /// </summary>
         public int id { get; set; }
+        /// <summary>
+        /// Nombre del dispositivo.
+        /// </summary>
         public string nombre { get; set; }
+        /// <summary>
+        /// Fecha y hora en el que se registro el dispositivo.
+        /// </summary>
         public Nullable<System.DateTime> registro { get; set; }
+        /// <summary>
+        /// Representa una coleccion de COMPONENTES del dispositivo
+        /// </summary>
         public List<ComponentesModel> Componentes { get; set; }
+        /// <summary>
+        /// Representa una coleccion de REGISTO_USOS del dispositivo
+        /// </summary>
         public List<RegistroUsosModel> Registro_usos { get; set; }
-
+        /// <summary>
+        /// Instancia de la interfas para usar log4net
+        /// </summary>
         static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
-
-        internal static RespuestaBase ObtenerTodos()
+        /// <summary>
+        /// Obtiene los n primeros dispositivos.
+        /// </summary>
+        /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+        /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        internal virtual RespuestaBase ObtenerTodos(int limit = 1000)
         {
             log.Info("Llamada al metodo");
             RespuestaBase respuesta = new RespuestaBase();
