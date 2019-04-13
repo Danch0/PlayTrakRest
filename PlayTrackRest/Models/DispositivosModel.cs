@@ -36,7 +36,7 @@ namespace PlayTrackRest.Models
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
-        static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
+        public static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
         /// <summary>
         /// Obtiene los n primeros dispositivos.
         /// </summary>
@@ -44,6 +44,16 @@ namespace PlayTrackRest.Models
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
         /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
         internal virtual RespuestaBase ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
+        {
+            return ObtenerTodosBase(tipo_dispositivo, limit);
+        }
+        /// <summary>
+        /// Obtiene los n primeros dispositivos.
+        /// </summary>
+        /// <param name="limit"> Numero de dispositivos a obtener.</param>
+        /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener.</param>
+        /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        internal RespuestaBase ObtenerTodosBase(TiposDispositivo tipo_dispositivo, int limit)
         {
             log.Info("Llamada al metodo");
             RespuestaBase respuesta = new RespuestaBase();
