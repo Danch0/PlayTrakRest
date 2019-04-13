@@ -1,4 +1,5 @@
-﻿using PlayTrackRest.Models;
+﻿using log4net;
+using PlayTrackRest.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace PlayTrackRest.Repositories
     /// </summary>
     public class DispositivosRepository
     {
+        /// <summary>
+        /// Instancia de la interfas para usar log4net
+        /// </summary>
+        public static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
         /// <summary>
         /// Obtiene los n primeros dispositivos.
         /// </summary>
@@ -30,6 +35,23 @@ namespace PlayTrackRest.Repositories
             return (from dispositivos in dbEntities.DISPOSITIVOS
                     orderby dispositivos.id descending
                     select dispositivos).Skip(limit).Take(limit);
+        }
+
+        internal static int AgregarDispositivo(DispositivosModel dispositivo)
+        {
+            log.Info("Llamada al metodo");
+            try
+            {
+                using (play0dbEntities dbEntities = new play0dbEntities())
+                {
+                    //return dbEntities.DISPOSITIVOS.Add()
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error no manejado: ", ex);
+            }
+            return 0;
         }
     }
 }

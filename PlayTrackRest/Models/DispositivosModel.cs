@@ -33,6 +33,12 @@ namespace PlayTrackRest.Models
         /// Representa una coleccion de REGISTO_USOS del dispositivo
         /// </summary>
         public List<RegistroUsosModel> Registro_usos { get; set; }
+
+        internal RespuestaBase AgregarDispositivo(DispositivosModel dispositivo)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
