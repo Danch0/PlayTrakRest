@@ -20,13 +20,14 @@ namespace PlayTrackRest.Controllers
         public RespuestaBase GetDispositivos()
         {
             DispositivosModel Dispositivos = new DispositivosModel();
-            RespuestaBase respuesta = Dispositivos.ObtenerTodos();
+            RespuestaBase respuesta = Dispositivos.ObtenerDispositivos();
             return respuesta;
         }
         /// <summary>
         /// Agregar nuevo dispositivo.
         /// </summary>
         /// <returns>Regresa un objeto de la clase RespuestaBase</returns>
+        [AcceptVerbs("POST")]
         public RespuestaBase PostDispositivo(DispositivosModel dispositivo)
         {
             DispositivosModel dispositivos = new DispositivosModel();

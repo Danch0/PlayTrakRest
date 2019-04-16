@@ -20,7 +20,7 @@ namespace PlayTrackRest.Controllers
         public RespuestaBase GetTragamonedas()
         {
             Tragamonedas tragamonedas = new Tragamonedas();
-            RespuestaBase respuesta = tragamonedas.ObtenerTodos();
+            RespuestaBase respuesta = tragamonedas.ObtenerDispositivos();
             return respuesta;
         }
     }

@@ -22,7 +22,7 @@ namespace PlayTrackRest.Repositories
         /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
         /// <returns>Coleccion con los n dispositivos especificado.</returns>
-        internal static IEnumerable<DISPOSITIVO> ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
+        internal static IEnumerable<DISPOSITIVO> ObtenerDispositivos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
         {
             using (play0dbEntities dbEntities = new play0dbEntities())
             {

@@ -22,10 +22,10 @@ namespace PlayTrackRest.Models
         /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene solo tragamonedas.</param>
         /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
-        internal override RespuestaBase ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.TRAGAMONEDAS, int limit = 1000)
+        internal override RespuestaBase ObtenerDispositivos(TiposDispositivo tipo_dispositivo = TiposDispositivo.TRAGAMONEDAS, int limit = 1000)
         {
             log.Info("Llamada al metodo");
-            return ObtenerTodosBase(tipo_dispositivo, limit);
+            return ObtenerDispositivosBase(tipo_dispositivo, limit);
         }
     }
 }

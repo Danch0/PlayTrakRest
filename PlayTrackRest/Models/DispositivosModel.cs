@@ -54,9 +54,9 @@ namespace PlayTrackRest.Models
         /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
         /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
-        internal virtual RespuestaBase ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
+        internal virtual RespuestaBase ObtenerDispositivos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
         {
-            return ObtenerTodosBase(tipo_dispositivo, limit);
+            return ObtenerDispositivosBase(tipo_dispositivo, limit);
         }
         /// <summary>
         /// Obtiene los n primeros dispositivos.
@@ -64,14 +64,14 @@ namespace PlayTrackRest.Models
         /// <param name="limit"> Numero de dispositivos a obtener.</param>
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener.</param>
         /// <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
-        internal RespuestaBase ObtenerTodosBase(TiposDispositivo tipo_dispositivo, int limit)
+        internal RespuestaBase ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, int limit)
         {
             log.Info("Llamada al metodo");
             RespuestaBase respuesta = new RespuestaBase();
             List<DispositivosModel> datos = new List<DispositivosModel>();
             try
             {
-                IEnumerable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerTodos(tipo_dispositivo, limit);
+                IEnumerable<DISPOSITIVO> dispositivos = DispositivosRepository.ObtenerDispositivos(tipo_dispositivo, limit);
                 foreach (DISPOSITIVO dispositivo in dispositivos)
                 {
                     DispositivosModel dispositivo_temp = BaseModel.GetModel<DispositivosModel>(dispositivo, new DispositivosModel());

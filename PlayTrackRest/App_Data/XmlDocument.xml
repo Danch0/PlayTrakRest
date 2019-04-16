@@ -481,16 +481,44 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:PlayTrackRest.Controllers.BlackJackController">
+            <summary>
+            Controlador para el manejo de los Mesa de black jack.
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Controllers.BlackJackController.GetTragamonedas">
+            <summary>
+            Obtiene todos los elementos Mesa de black jack..
+            </summary>
+            <returns>Regresa un objeto de la clase RespuestaBase</returns>
+        </member>
         <member name="T:PlayTrackRest.Controllers.DispositivosController">
             <summary>
             Controlador para el manejo de los dispositivos.
             </summary>
         </member>
-        <member name="M:PlayTrackRest.Controllers.DispositivosController.Get">
+        <member name="M:PlayTrackRest.Controllers.DispositivosController.GetDispositivos">
             <summary>
             Obtiene todos los elementos dispositivos.
             </summary>
-            <returns>Regresa un objeto de la clase RespuestaBase, <see cref="!:IDocumentationProvider"/> detalles de las clases devueltas.</returns>
+            <returns>Regresa un objeto de la clase RespuestaBase</returns>
+        </member>
+        <member name="M:PlayTrackRest.Controllers.DispositivosController.PostDispositivo(PlayTrackRest.Models.DispositivosModel)">
+            <summary>
+            Agregar nuevo dispositivo.
+            </summary>
+            <returns>Regresa un objeto de la clase RespuestaBase</returns>
+        </member>
+        <member name="T:PlayTrackRest.Controllers.TragamonedasController">
+            <summary>
+            Controlador para el manejo de los tragamonedas.
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Controllers.TragamonedasController.GetTragamonedas">
+            <summary>
+            Obtiene todos los elementos tragamonedas.
+            </summary>
+            <returns>Regresa un objeto de la clase RespuestaBase</returns>
         </member>
         <member name="T:PlayTrackRest.Models.BaseModel">
             <summary>
@@ -502,9 +530,19 @@
             Crea un objeto del tipo especificado a partir de otro objeto base. Debe concidir tipo y nombre de los parametros de los dos objetos.
             </summary>
             <typeparam name="T">Tipo del objeto devuelto.</typeparam>
-            <param name="entity">Objeto base</param>
-            <param name="model">Objeto creado a partir de objeto base</param>
+            <param name="entity">Objeto base.</param>
+            <param name="model">Objeto tipado a partir de objeto base.</param>
             <returns>Un objeto tipado y creado a partir del objeto base.</returns>
+        </member>
+        <member name="M:PlayTrackRest.Models.BaseModel.GetModelList``1(System.Object,System.Collections.Generic.List{``0},System.Object)">
+            <summary>
+            Crear una lista del tipo especificado a partir de otra lista base.
+            </summary>
+            <typeparam name="T">Tipo del objeto dentro de la lista devuelta.</typeparam>
+            <param name="entity_list">Lista base de la que se tomaran los objetos.</param>
+            <param name="model_list">Lista a la que se agregaran los objtos tipados.</param>
+            <param name="model">Objeto del cual se tomara el tipo.</param>
+            <returns>Lita con objetos tipados y creada a partir de la lista base.</returns>
         </member>
         <member name="T:PlayTrackRest.Models.RespuestaBase">
             <summary>
@@ -530,6 +568,207 @@
             <summary>
             Constructor con los datos por defecto.
             </summary>
+        </member>
+        <member name="T:PlayTrackRest.Models.TiposDispositivo">
+            <summary>
+            Representa un enumerador de los tipos de dispositivos.
+            </summary>
+        </member>
+        <member name="T:PlayTrackRest.Models.BlackJack">
+            <summary>
+            Representa la clase para el manejo de Mesas de BlckJack.
+            </summary>
+        </member>
+        <member name="F:PlayTrackRest.Models.BlackJack.log">
+            <summary>
+            Instancia de la interfas para usar log4net
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Models.BlackJack.ObtenerDispositivos(PlayTrackRest.Models.TiposDispositivo,System.Int32)">
+            <summary>
+            Obtiene los n primeros Mesa de BlackJack.
+            </summary>
+            <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+            <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene solo Mesa de BlackJack.</param>
+            <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        </member>
+        <member name="T:PlayTrackRest.Models.ComponentesModel">
+            <summary>
+            Representa el modelo para el manejo de la tabla COMPONENTES.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.ComponentesModel.id">
+            <summary>
+            Identificador primario del componente.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.ComponentesModel.nombre">
+            <summary>
+            Nombre del componente.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.ComponentesModel.descripcion">
+            <summary>
+            Descripcion del componente.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.ComponentesModel.registro">
+            <summary>
+            Fecha y hora en el que se registro el componente.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.ComponentesModel.dispositivo_id">
+            <summary>
+            LLave foranea del dispositivo al que pertenece el componente.
+            </summary>
+        </member>
+        <member name="T:PlayTrackRest.Models.DispositivosModel">
+            <summary>
+            Representa el modelo para el manejo de la tabla DISPOSITIVOS.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.id">
+            <summary>
+            Identificador primario del dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.nombre">
+            <summary>
+            Nombre del dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.registro">
+            <summary>
+            Fecha y hora en el que se registro el dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.Componentes">
+            <summary>
+            Representa una coleccion de COMPONENTES del dispositivo
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.Registro_usos">
+            <summary>
+            Representa una coleccion de REGISTO_USOS del dispositivo
+            </summary>
+        </member>
+        <member name="F:PlayTrackRest.Models.DispositivosModel.log">
+            <summary>
+            Instancia de la interfas para usar log4net
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Models.DispositivosModel.#ctor">
+            <summary>
+            Representa el constructor del modelo DispositivosModel.
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Models.DispositivosModel.ObtenerDispositivos(PlayTrackRest.Models.TiposDispositivo,System.Int32)">
+            <summary>
+            Obtiene los n primeros dispositivos.
+            </summary>
+            <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+            <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
+            <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        </member>
+        <member name="M:PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(PlayTrackRest.Models.TiposDispositivo,System.Int32)">
+            <summary>
+            Obtiene los n primeros dispositivos.
+            </summary>
+            <param name="limit"> Numero de dispositivos a obtener.</param>
+            <param name="tipo_dispositivo"> Tipo de dispositivo a obtener.</param>
+            <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        </member>
+        <member name="M:PlayTrackRest.Models.DispositivosModel.AgregarDispositivo(PlayTrackRest.Models.DispositivosModel)">
+            <summary>
+            
+            </summary>
+            <param name="dispositivo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:PlayTrackRest.Models.RegistroUsosModel">
+            <summary>
+            Representa el modelo para el manejo de la tabla DISPOSITIVOS.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.RegistroUsosModel.id">
+            <summary>
+            Identificador primario del componente.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.RegistroUsosModel.dt_inicio">
+            <summary>
+            Fecha y hora a la que inicio a ser utilizar el dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.RegistroUsosModel.dt_fin">
+            <summary>
+            Fecha y hora a la que termino de ser utilizar el dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.RegistroUsosModel.dispositivo_id">
+            <summary>
+            LLave foranea del dispositivo al que pertenece el resitro de uso.
+            </summary>
+        </member>
+        <member name="T:PlayTrackRest.Models.Tragamonedas">
+            <summary>
+            Representa la clase para el manejo de Tragamonedas.
+            </summary>
+        </member>
+        <member name="F:PlayTrackRest.Models.Tragamonedas.log">
+            <summary>
+            Instancia de la interfas para usar log4net
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Models.Tragamonedas.ObtenerDispositivos(PlayTrackRest.Models.TiposDispositivo,System.Int32)">
+            <summary>
+            Obtiene los n primeros tragamonedas.
+            </summary>
+            <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+            <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene solo tragamonedas.</param>
+            <returns>Regresa un objeto de la clase RespuestaBase con una coleccion con los n dispositivos especificado.</returns>
+        </member>
+        <member name="T:PlayTrackRest.Repositories.ComponentesRepository">
+            <summary>
+            Representa una coleccion de metodos para el manejo de la tabla COMPONENTES.
+            </summary>
+        </member>
+        <member name="F:PlayTrackRest.Repositories.ComponentesRepository.log">
+            <summary>
+            Instancia de la interfas para usar log4net
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Repositories.ComponentesRepository.AgregarComponente(PlayTrackRest.COMPONENTE)">
+            <summary>
+            Agrega nuevo componente.
+            </summary>
+            <param name="new_componente">Nuevo objeto componente de la tabla COMPONENTES</param>
+            <returns></returns>
+        </member>
+        <member name="T:PlayTrackRest.Repositories.DispositivosRepository">
+            <summary>
+            Representa una coleccion de metodos para el manejo de la tabla DISPOSITIVOS.
+            </summary>
+        </member>
+        <member name="F:PlayTrackRest.Repositories.DispositivosRepository.log">
+            <summary>
+            Instancia de la interfas para usar log4net
+            </summary>
+        </member>
+        <member name="M:PlayTrackRest.Repositories.DispositivosRepository.ObtenerDispositivos(PlayTrackRest.Models.TiposDispositivo,System.Int32)">
+            <summary>
+            Obtiene los n primeros dispositivos.
+            </summary>
+            <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
+            <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
+            <returns>Coleccion con los n dispositivos especificado.</returns>
+        </member>
+        <member name="M:PlayTrackRest.Repositories.DispositivosRepository.AgregarDispositivo(PlayTrackRest.DISPOSITIVO)">
+            <summary>
+            Agrega nuevo dispositivo.
+            </summary>
+            <param name="new_dispositivo">Nuevo objeto dispositivo de la tabla DISPOSITIVOS</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
