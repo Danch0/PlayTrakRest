@@ -164,14 +164,13 @@ namespace PlayTrackRest.Models
             {
                 dispositivo.registro = dispositivo.registro != null ? dispositivo.registro : DateTime.Now;
                 DISPOSITIVO new_dispositivo = BaseModel.GetModel<DISPOSITIVO>(dispositivo, new DISPOSITIVO());
-                DISPOSITIVO dispositivo_agregado = DispositivosRepository.AgregarDispositivo(new_dispositivo);
-                if (dispositivo_agregado != null)
+                DispositivosRepository.AgregarDispositivo(new_dispositivo);
+                if (new_dispositivo.id != 0)
                 {
                     respuesta.Datos = dispositivo;
 
                     if (dispositivo.Componentes.Count > 0)
                     {
-                        COMPONENTE componente_agregado = null;
                         foreach (ComponentesModel componenete in dispositivo.Componentes)
                         {
                             COMPONENTE new_componenete = BaseModel.GetModel<COMPONENTE>(componenete, new COMPONENTE());
@@ -181,7 +180,7 @@ namespace PlayTrackRest.Models
                                 {
                                     new_componenete.registro = DateTime.Now;
                                     new_componenete.dispositivo_id = new_dispositivo.id;
-                                    componente_agregado = ComponentesRepository.AgregarComponente(new_componenete);
+                                    ComponentesRepository.AgregarComponente(new_componenete);
                                 }
                                 catch (Exception ex)
                                 {
@@ -191,6 +190,13 @@ namespace PlayTrackRest.Models
                             }
                         }
                     }
+                }
+                else
+                {
+                    string mensaje = String.Format("No fue posible agregar nuevo dispositivo nombre-->{0}.", dispositivo.nombre);
+                    respuesta.Estatus = false;
+                    respuesta.Mensaje += " " + mensaje;
+                    log.Error(mensaje);
                 }
             }
             catch (Exception ex)

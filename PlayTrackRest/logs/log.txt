@@ -201,3 +201,21 @@ System.NotSupportedException: LINQ to Entities does not recognize the method 'In
    at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
    at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
    at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 98
+INFO  2019-04-16 17:51:56,039  6872ms Tragamonedas           btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:51:56,062  6895ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:51:56,066  6899ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:53:02,312 73145ms BlackJack              btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:53:02,313 73146ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:53:02,313 73146ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:53:24,536 95369ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:53:24,536 95369ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 18:00:07,338 120309ms DispositivosModel      AgregarDispositivo - Llamada al metodo
+INFO  2019-04-16 18:00:07,364 120335ms DispositivosRepository AgregarDispositivo - Llamada al metodo
+ERROR 2019-04-16 18:01:00,287 173258ms DispositivosModel      AgregarDispositivo -  Ya existe un dispositivo con el nombre Tragamonedas-1
+System.ArgumentException: Ya existe un dispositivo con el nombre Tragamonedas-1
+   at PlayTrackRest.Repositories.DispositivosRepository.AgregarDispositivo(DISPOSITIVO new_dispositivo) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Repositories\DispositivosRepository.cs:line 60
+   at PlayTrackRest.Models.DispositivosModel.AgregarDispositivo(DispositivosModel dispositivo) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 167
+INFO  2019-04-16 18:02:50,425 283397ms DispositivosModel      AgregarDispositivo - Llamada al metodo
+INFO  2019-04-16 18:02:50,426 283398ms DispositivosRepository AgregarDispositivo - Llamada al metodo
+INFO  2019-04-16 18:08:44,723 637694ms ComponentesRepository  AgregarComponente  - Llamada al metodo
+INFO  2019-04-16 18:09:13,115 666086ms ComponentesRepository  AgregarComponente  - Llamada al metodo
