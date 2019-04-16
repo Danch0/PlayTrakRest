@@ -219,3 +219,7 @@ INFO  2019-04-16 18:02:50,425 283397ms DispositivosModel      AgregarDispositivo
 INFO  2019-04-16 18:02:50,426 283398ms DispositivosRepository AgregarDispositivo - Llamada al metodo
 INFO  2019-04-16 18:08:44,723 637694ms ComponentesRepository  AgregarComponente  - Llamada al metodo
 INFO  2019-04-16 18:09:13,115 666086ms ComponentesRepository  AgregarComponente  - Llamada al metodo
+INFO  2019-04-16 18:24:13,483 18761ms DispositivosModel      AgregarDispositivo - Llamada al metodo
+INFO  2019-04-16 18:24:13,512 18789ms DispositivosRepository AgregarDispositivo - Llamada al metodo
+INFO  2019-04-16 18:24:24,255 29533ms ComponentesRepository  AgregarComponente  - Llamada al metodo
+INFO  2019-04-16 18:24:24,554 29832ms ComponentesRepository  AgregarComponente  - Llamada al metodo

@@ -167,6 +167,7 @@ namespace PlayTrackRest.Models
                 DispositivosRepository.AgregarDispositivo(new_dispositivo);
                 if (new_dispositivo.id != 0)
                 {
+                    dispositivo.id = new_dispositivo.id;
                     respuesta.Datos = dispositivo;
 
                     if (dispositivo.Componentes.Count > 0)
@@ -181,6 +182,9 @@ namespace PlayTrackRest.Models
                                     new_componenete.registro = DateTime.Now;
                                     new_componenete.dispositivo_id = new_dispositivo.id;
                                     ComponentesRepository.AgregarComponente(new_componenete);
+                                    componenete.registro = new_componenete.registro;
+                                    componenete.id = new_componenete.id;
+                                    componenete.dispositivo_id = new_dispositivo.id;
                                 }
                                 catch (Exception ex)
                                 {
@@ -190,6 +194,7 @@ namespace PlayTrackRest.Models
                             }
                         }
                     }
+
                 }
                 else
                 {
