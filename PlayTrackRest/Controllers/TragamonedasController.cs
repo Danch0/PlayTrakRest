@@ -17,7 +17,7 @@ namespace PlayTrackRest.Controllers
         /// Obtiene todos los elementos tragamonedas.
         /// </summary>
         /// <returns>Regresa un objeto de la clase RespuestaBase</returns>
-        public RespuestaBase GetTragamonedas()
+        public RespuestaBase Get()
         {
             Tragamonedas tragamonedas = new Tragamonedas();
             RespuestaBase respuesta = tragamonedas.ObtenerDispositivos();

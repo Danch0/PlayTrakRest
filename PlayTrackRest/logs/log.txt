@@ -1,2 +1,163 @@
 INFO  2019-04-11 13:31:52,505 71488ms DispositivosModel      ObtenerTodos       - Llamda el metodo ObtenerTodos.
 INFO  2019-04-11 14:35:57,847 61535ms DispositivosModel      ObtenerTodos       - Llamada al metodo
+INFO  2019-04-16 14:11:46,179 49598ms DispositivosModel      erDispositivosBase - Llamada al metodo
+ERROR 2019-04-16 14:11:46,456 49875ms DispositivosModel      erDispositivosBase - OKThe operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:13:06,063 129482ms DispositivosModel      erDispositivosBase - Llamada al metodo
+ERROR 2019-04-16 14:13:59,902 183321ms DispositivosModel      erDispositivosBase - OKThe operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:24:03,532  6478ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:24:03,551  6497ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:24:28,466 31411ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:31:29,039  6344ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:31:29,063  6368ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:32:10,834 48139ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:32:13,674 50979ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:32:13,674 50979ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:32:13,705 51010ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:34:24,938 182243ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:34:24,939 182244ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:34:24,970 182275ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:34:36,132 193437ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:34:36,133 193438ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:34:36,155 193460ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:34:56,626 213931ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:34:56,627 213932ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:35:38,936 256241ms DispositivosModel      erDispositivosBase -  The operation cannot be completed because the DbContext has been disposed.
+System.InvalidOperationException: The operation cannot be completed because the DbContext has been disposed.
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalQuery`1.GetEnumerator()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()
+   at System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 75
+INFO  2019-04-16 14:48:36,691 11256ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:48:36,711 11276ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 14:49:45,359 79925ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:49:45,359 79925ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 14:54:14,811  9424ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 14:54:14,831  9444ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 14:54:41,954 36568ms DispositivosModel      erDispositivosBase -  The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+System.ObjectDisposedException: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+   at System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   at System.Data.Entity.DynamicProxies.DISPOSITIVO_7C2B780546F13E9BAEC133673D88E2B46415889283F83D2FEF758D2FA16192EA.get_COMPONENTES()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 83
+INFO  2019-04-16 16:43:56,654  9524ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:43:56,673  9543ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 16:43:57,869 10740ms DispositivosModel      erDispositivosBase -  The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+System.ObjectDisposedException: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+   at System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   at System.Data.Entity.DynamicProxies.DISPOSITIVO_7C2B780546F13E9BAEC133673D88E2B46415889283F83D2FEF758D2FA16192EA.get_COMPONENTES()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 83
+INFO  2019-04-16 16:44:14,164 27034ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:44:14,164 27034ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 16:45:50,986 123856ms DispositivosModel      erDispositivosBase -  The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+System.ObjectDisposedException: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+   at System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   at System.Data.Entity.DynamicProxies.DISPOSITIVO_7C2B780546F13E9BAEC133673D88E2B46415889283F83D2FEF758D2FA16192EA.get_COMPONENTES()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 83
+INFO  2019-04-16 16:45:59,530 132400ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:45:59,533 132403ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 16:46:12,983 145853ms DispositivosModel      erDispositivosBase -  The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+System.ObjectDisposedException: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+   at System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   at System.Data.Entity.DynamicProxies.DISPOSITIVO_7C2B780546F13E9BAEC133673D88E2B46415889283F83D2FEF758D2FA16192EA.get_COMPONENTES()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 83
+INFO  2019-04-16 16:52:10,131 19345ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:52:10,153 19367ms DispositivosRepository btenerDispositivos - Llamada al metodo
+ERROR 2019-04-16 16:52:37,823 47037ms DispositivosModel      erDispositivosBase -  The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+System.ObjectDisposedException: The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.
+   at System.Data.Entity.Core.Objects.ObjectContext.get_Connection()
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   at System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   at System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   at System.Data.Entity.DynamicProxies.DISPOSITIVO_7C2B780546F13E9BAEC133673D88E2B46415889283F83D2FEF758D2FA16192EA.get_COMPONENTES()
+   at PlayTrackRest.Models.DispositivosModel.ObtenerDispositivosBase(TiposDispositivo tipo_dispositivo, Int32 limit) in C:\Users\Daniel\Documents\Work\Repos\Propios\PlayTrakRest\PlayTrackRest\Models\DispositivosModel.cs:line 83
+INFO  2019-04-16 16:52:40,877 50091ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:52:40,878 50092ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 16:56:22,923  6389ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:56:22,943  6409ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 16:59:37,714  7813ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 16:59:37,733  7832ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:20:49,499  6350ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:20:49,521  6372ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:31:02,896 25061ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:31:02,922 25087ms DispositivosRepository btenerDispositivos - Llamada al metodo
+INFO  2019-04-16 17:32:18,703  5713ms DispositivosModel      erDispositivosBase - Llamada al metodo
+INFO  2019-04-16 17:32:18,726  5737ms DispositivosRepository btenerDispositivos - Llamada al metodo

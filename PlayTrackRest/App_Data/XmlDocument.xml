@@ -486,7 +486,7 @@
             Controlador para el manejo de los Mesa de black jack.
             </summary>
         </member>
-        <member name="M:PlayTrackRest.Controllers.BlackJackController.GetTragamonedas">
+        <member name="M:PlayTrackRest.Controllers.BlackJackController.Get">
             <summary>
             Obtiene todos los elementos Mesa de black jack..
             </summary>
@@ -497,13 +497,13 @@
             Controlador para el manejo de los dispositivos.
             </summary>
         </member>
-        <member name="M:PlayTrackRest.Controllers.DispositivosController.GetDispositivos">
+        <member name="M:PlayTrackRest.Controllers.DispositivosController.Get">
             <summary>
             Obtiene todos los elementos dispositivos.
             </summary>
             <returns>Regresa un objeto de la clase RespuestaBase</returns>
         </member>
-        <member name="M:PlayTrackRest.Controllers.DispositivosController.PostDispositivo(PlayTrackRest.Models.DispositivosModel)">
+        <member name="M:PlayTrackRest.Controllers.DispositivosController.Post(PlayTrackRest.Models.DispositivosModel)">
             <summary>
             Agregar nuevo dispositivo.
             </summary>
@@ -514,7 +514,7 @@
             Controlador para el manejo de los tragamonedas.
             </summary>
         </member>
-        <member name="M:PlayTrackRest.Controllers.TragamonedasController.GetTragamonedas">
+        <member name="M:PlayTrackRest.Controllers.TragamonedasController.Get">
             <summary>
             Obtiene todos los elementos tragamonedas.
             </summary>
@@ -652,6 +652,21 @@
             Representa una coleccion de REGISTO_USOS del dispositivo
             </summary>
         </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel._tipo_id">
+            <summary>
+            Id del tipo de dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.tipo_id">
+            <summary>
+            Id del tipo de dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.Tipo">
+            <summary>
+            Tipo segun el enum
+            </summary>
+        </member>
         <member name="F:PlayTrackRest.Models.DispositivosModel.log">
             <summary>
             Instancia de la interfas para usar log4net
@@ -680,9 +695,9 @@
         </member>
         <member name="M:PlayTrackRest.Models.DispositivosModel.AgregarDispositivo(PlayTrackRest.Models.DispositivosModel)">
             <summary>
-            
+            Agregar nuevo dispositivo.
             </summary>
-            <param name="dispositivo"></param>
+            <param name="dispositivo">Objeto dispositivo del modelo DispositivosModel.</param>
             <returns></returns>
         </member>
         <member name="T:PlayTrackRest.Models.RegistroUsosModel">

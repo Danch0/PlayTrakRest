@@ -22,21 +22,25 @@ namespace PlayTrackRest.Repositories
         /// <param name="limit"> Numero de dispositivos a obtener por defecto 1000.</param>
         /// <param name="tipo_dispositivo"> Tipo de dispositivo a obtener por defecto obtiene todos.</param>
         /// <returns>Coleccion con los n dispositivos especificado.</returns>
-        internal static IEnumerable<DISPOSITIVO> ObtenerDispositivos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
+        internal static IQueryable<DISPOSITIVO> ObtenerDispositivos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
         {
-            using (play0dbEntities dbEntities = new play0dbEntities())
+            log.Info("Llamada al metodo");
+            IQueryable<DISPOSITIVO> resultado = null;
+            play0dbEntities dbEntities = new play0dbEntities();
+
+            if (tipo_dispositivo != TiposDispositivo.NONE)
             {
-                if (tipo_dispositivo != TiposDispositivo.NONE)
-                {
-                    return (from dispositivos in dbEntities.DISPOSITIVOS
-                            orderby dispositivos.id descending
-                            where dispositivos.tipo_id == tipo_dispositivo.GetHashCode()
-                            select dispositivos).Skip(limit).Take(limit);
-                }
-                return (from dispositivos in dbEntities.DISPOSITIVOS
-                        orderby dispositivos.id descending
-                        select dispositivos).Skip(limit).Take(limit);
+                resultado = (from dispositivos in dbEntities.DISPOSITIVOS
+                        where dispositivos.tipo_id == tipo_dispositivo.GetHashCode()
+                        select dispositivos).Take(limit);
             }
+            else
+            {
+                resultado = (from dispositivos in dbEntities.DISPOSITIVOS
+                        select dispositivos).Take(limit);
+            }
+
+            return resultado;
         }
         /// <summary>
         /// Agrega nuevo dispositivo.

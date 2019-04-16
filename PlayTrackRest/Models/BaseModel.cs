@@ -100,7 +100,7 @@ namespace PlayTrackRest.Models
         /// </summary>
         public RespuestaBase()
         {
-            Mensaje = "OK";
+            Mensaje = "";
             Estatus = true;
             Datos = null;
         }
@@ -108,7 +108,7 @@ namespace PlayTrackRest.Models
     /// <summary>
     /// Representa un enumerador de los tipos de dispositivos.
     /// </summary>
-    enum TiposDispositivo
+    public enum TiposDispositivo
     {
         NONE = 0,
         TRAGAMONEDAS = 1,

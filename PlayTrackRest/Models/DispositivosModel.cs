@@ -30,9 +30,32 @@ namespace PlayTrackRest.Models
         /// </summary>
         public List<ComponentesModel> Componentes { get; set; }
         /// <summary>
+        /// Id del tipo de dispositivo.
+        /// </summary>
+        public Nullable<int> tipo_id
+        {
+            get
+            {
+                return _tipo_id;
+            }
+            set
+            {
+                _tipo_id = value;
+                this.Tipo = (TiposDispositivo)Enum.ToObject(typeof(TiposDispositivo), _tipo_id);
+            }
+        }
+        /// <summary>
         /// Representa una coleccion de REGISTO_USOS del dispositivo
         /// </summary>
         public List<RegistroUsosModel> Registro_usos { get; set; }
+        /// <summary>
+        /// Id del tipo de dispositivo.
+        /// </summary>
+        private Nullable<int> _tipo_id { get; set; }
+        /// <summary>
+        /// Tipo segun el enum
+        /// </summary>
+        internal TiposDispositivo Tipo { get; set; }
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
@@ -117,15 +140,16 @@ namespace PlayTrackRest.Models
             }
             catch (Exception ex)
             {
-                respuesta.Mensaje += ex.Message;
+                respuesta.Mensaje += " " + ex.Message;
+                respuesta.Estatus = false;
                 log.Error(respuesta.Mensaje, ex);
             }
             return respuesta;
         }
         /// <summary>
-        /// 
+        /// Agregar nuevo dispositivo.
         /// </summary>
-        /// <param name="dispositivo"></param>
+        /// <param name="dispositivo">Objeto dispositivo del modelo DispositivosModel.</param>
         /// <returns></returns>
         internal RespuestaBase AgregarDispositivo(DispositivosModel dispositivo)
         {
@@ -133,6 +157,7 @@ namespace PlayTrackRest.Models
             RespuestaBase respuesta = new RespuestaBase();
             try
             {
+                dispositivo.registro = dispositivo.registro != null ? dispositivo.registro : DateTime.Now;
                 DISPOSITIVO new_dispositivo = BaseModel.GetModel<DISPOSITIVO>(dispositivo, new DISPOSITIVO());
                 DISPOSITIVO dispositivo_agregado = DispositivosRepository.AgregarDispositivo(new_dispositivo);
                 if (dispositivo_agregado != null)
@@ -155,7 +180,7 @@ namespace PlayTrackRest.Models
                                 }
                                 catch (Exception ex)
                                 {
-                                    respuesta.Mensaje += ex.Message;
+                                    respuesta.Mensaje += " " + ex.Message;
                                     log.Error(respuesta.Mensaje, ex);
                                 }
                             }
@@ -165,7 +190,8 @@ namespace PlayTrackRest.Models
             }
             catch (Exception ex)
             {
-                respuesta.Mensaje += ex.Message;
+                respuesta.Mensaje += " " + ex.Message;
+                respuesta.Estatus = false;
                 log.Error(respuesta.Mensaje, ex);
             }
             return respuesta;

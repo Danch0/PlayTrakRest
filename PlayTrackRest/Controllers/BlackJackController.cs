@@ -17,7 +17,7 @@ namespace PlayTrackRest.Controllers
         /// Obtiene todos los elementos Mesa de black jack..
         /// </summary>
         /// <returns>Regresa un objeto de la clase RespuestaBase</returns>
-        public RespuestaBase GetTragamonedas()
+        public RespuestaBase Get()
         {
             BlackJack blackjack = new BlackJack();
             RespuestaBase respuesta = blackjack.ObtenerDispositivos();
