@@ -24,34 +24,56 @@ namespace PlayTrackRest.Repositories
         /// <returns>Coleccion con los n dispositivos especificado.</returns>
         internal static IEnumerable<DISPOSITIVO> ObtenerTodos(TiposDispositivo tipo_dispositivo = TiposDispositivo.NONE, int limit = 1000)
         {
-            play0dbEntities dbEntities = new play0dbEntities();
-            if (tipo_dispositivo != TiposDispositivo.NONE)
+            try
             {
-                return (from dispositivos in dbEntities.DISPOSITIVOS
-                        orderby dispositivos.id descending
-                        where dispositivos.tipo_id == tipo_dispositivo.GetHashCode()
-                        select dispositivos).Skip(limit).Take(limit);
+                using (play0dbEntities dbEntities = new play0dbEntities())
+                {
+                    if (tipo_dispositivo != TiposDispositivo.NONE)
+                    {
+                        return (from dispositivos in dbEntities.DISPOSITIVOS
+                                orderby dispositivos.id descending
+                                where dispositivos.tipo_id == tipo_dispositivo.GetHashCode()
+                                select dispositivos).Skip(limit).Take(limit);
+                    }
+                    return (from dispositivos in dbEntities.DISPOSITIVOS
+                            orderby dispositivos.id descending
+                            select dispositivos).Skip(limit).Take(limit);
+                }
             }
-            return (from dispositivos in dbEntities.DISPOSITIVOS
-                    orderby dispositivos.id descending
-                    select dispositivos).Skip(limit).Take(limit);
+            catch (Exception ex)
+            {
+                log.Error(string.Format("Error no manejado tipo de dispositivo {0}, si es NONE se trato de obtener todos.", tipo_dispositivo.ToString()), ex);
+            }
+            return null;
         }
-
-        internal static int AgregarDispositivo(DispositivosModel dispositivo)
+        /// <summary>
+        /// Agrega nuevo dispositivo.
+        /// </summary>
+        /// <param name="new_dispositivo">Nuevo objeto dispositivo de la tabla DISPOSITIVOS</param>
+        /// <returns></returns>
+        internal static DISPOSITIVO AgregarDispositivo(DISPOSITIVO new_dispositivo)
         {
             log.Info("Llamada al metodo");
             try
             {
                 using (play0dbEntities dbEntities = new play0dbEntities())
                 {
-                    //return dbEntities.DISPOSITIVOS.Add()
+                    dbEntities.DISPOSITIVOS.Add(new_dispositivo);
+                    dbEntities.SaveChanges();
+
+                    if (new_dispositivo.id != 0)
+                    {
+                        return new_dispositivo;
+                    }
+                    else
+                        log.Error(string.Format("No fue posible guardar un nuevo dispositivo {0}.", new_dispositivo.nombre));
                 }
             }
             catch (Exception ex)
             {
-                log.Error("Error no manejado: ", ex);
+                log.Error(string.Format("Error no manejado dispositivo {0}.", new_dispositivo.nombre), ex);
             }
-            return 0;
+            return null;
         }
     }
 }

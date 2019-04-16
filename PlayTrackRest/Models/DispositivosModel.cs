@@ -33,16 +33,21 @@ namespace PlayTrackRest.Models
         /// Representa una coleccion de REGISTO_USOS del dispositivo
         /// </summary>
         public List<RegistroUsosModel> Registro_usos { get; set; }
-
-        internal RespuestaBase AgregarDispositivo(DispositivosModel dispositivo)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
         public static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
+        /// <summary>
+        /// Representa el constructor del modelo DispositivosModel.
+        /// </summary>
+        public DispositivosModel()
+        {
+            id = 0;
+            nombre = null;
+            registro = null;
+            Componentes = new List<ComponentesModel>();
+            Registro_usos = new List<RegistroUsosModel>();
+        }
         /// <summary>
         /// Obtiene los n primeros dispositivos.
         /// </summary>
@@ -114,9 +119,49 @@ namespace PlayTrackRest.Models
             }
             catch (Exception ex)
             {
-                log.Error("ObtenerTodos--> mensage: " + respuesta.Mensaje, ex);
+                log.Error("Mensage: " + respuesta.Mensaje, ex);
             }
             return respuesta;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dispositivo"></param>
+        /// <returns></returns>
+        internal RespuestaBase AgregarDispositivo(DispositivosModel dispositivo)
+        {
+            log.Info("Llamada al metodo");
+            RespuestaBase respuesta = new RespuestaBase();
+            try
+            {
+                DISPOSITIVO new_dispositivo = BaseModel.GetModel<DISPOSITIVO>(dispositivo, new DISPOSITIVO());
+                DISPOSITIVO dispositivo_agregado = DispositivosRepository.AgregarDispositivo(new_dispositivo);
+                if (dispositivo_agregado != null)
+                {
+                    respuesta.Datos = dispositivo;
+
+                    if (dispositivo.Componentes.Count > 0)
+                    {
+                        COMPONENTE componente_agregado = null;
+                        foreach (ComponentesModel componenete in dispositivo.Componentes)
+                        {
+                            COMPONENTE new_componenete = BaseModel.GetModel<COMPONENTE>(componenete, new COMPONENTE());
+                            if (new_componenete.nombre != null)
+                            {
+                                new_componenete.registro = DateTime.Now;
+                                new_componenete.dispositivo_id = new_dispositivo.id;
+                                //componente_agregado = ComponentesRepository.AgregarComponente(new_componenete);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error("Mensage: " + respuesta.Mensaje, ex);
+            }
+            return respuesta;
+        }
+
     }
 }
