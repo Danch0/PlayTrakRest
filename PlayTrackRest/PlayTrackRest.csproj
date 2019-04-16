@@ -213,6 +213,7 @@
     <Compile Include="Models\DispositivosModel.cs" />
     <Compile Include="Models\RegistroUsosModel.cs" />
     <Compile Include="Models\Tragamonedas.cs" />
+    <Compile Include="Repositories\ComponentesRepository.cs" />
     <Compile Include="Repositories\RepoGenerico.cs" />
     <Compile Include="play0db.Context.cs">
       <AutoGen>True</AutoGen>

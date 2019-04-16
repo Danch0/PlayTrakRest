@@ -15,7 +15,7 @@ namespace PlayTrackRest.Repositories
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
-        public static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosModel));
+        public static ILog log = log4net.LogManager.GetLogger(typeof(DispositivosRepository));
         /// <summary>
         /// Obtiene los n primeros dispositivos.
         /// </summary>

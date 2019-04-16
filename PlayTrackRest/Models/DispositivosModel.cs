@@ -147,9 +147,17 @@ namespace PlayTrackRest.Models
                             COMPONENTE new_componenete = BaseModel.GetModel<COMPONENTE>(componenete, new COMPONENTE());
                             if (new_componenete.nombre != null)
                             {
-                                new_componenete.registro = DateTime.Now;
-                                new_componenete.dispositivo_id = new_dispositivo.id;
-                                //componente_agregado = ComponentesRepository.AgregarComponente(new_componenete);
+                                try
+                                {
+                                    new_componenete.registro = DateTime.Now;
+                                    new_componenete.dispositivo_id = new_dispositivo.id;
+                                    componente_agregado = ComponentesRepository.AgregarComponente(new_componenete);
+                                }
+                                catch (Exception ex)
+                                {
+                                    respuesta.Mensaje += ex.Message;
+                                    log.Error(respuesta.Mensaje, ex);
+                                }
                             }
                         }
                     }
@@ -157,7 +165,8 @@ namespace PlayTrackRest.Models
             }
             catch (Exception ex)
             {
-                log.Error("Mensage: " + respuesta.Mensaje, ex);
+                respuesta.Mensaje += ex.Message;
+                log.Error(respuesta.Mensaje, ex);
             }
             return respuesta;
         }
