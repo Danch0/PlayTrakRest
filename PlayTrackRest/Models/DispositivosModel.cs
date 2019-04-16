@@ -108,18 +108,17 @@ namespace PlayTrackRest.Models
                     }
                     else
                     {
-                        log.Error("No fue posible procesar dispositivo con ID-->" + dispositivo.id.ToString());
-                        return respuesta;
+                        string mensaje = String.Format("No fue posible procesar dispositivo con ID-->{0}.", dispositivo.id.ToString());
+                        respuesta.Mensaje += " " + mensaje;
+                        log.Error(mensaje);
                     }
-
                 }
-                respuesta.Mensaje = "OK";
-                respuesta.Estatus = true;
                 respuesta.Datos = datos;
             }
             catch (Exception ex)
             {
-                log.Error("Mensage: " + respuesta.Mensaje, ex);
+                respuesta.Mensaje += ex.Message;
+                log.Error(respuesta.Mensaje, ex);
             }
             return respuesta;
         }
