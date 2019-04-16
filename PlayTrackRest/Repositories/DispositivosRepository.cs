@@ -27,11 +27,12 @@ namespace PlayTrackRest.Repositories
             log.Info("Llamada al metodo");
             IQueryable<DISPOSITIVO> resultado = null;
             play0dbEntities dbEntities = new play0dbEntities();
+            int tipo = tipo_dispositivo.GetHashCode();
 
             if (tipo_dispositivo != TiposDispositivo.NONE)
             {
                 resultado = (from dispositivos in dbEntities.DISPOSITIVOS
-                        where dispositivos.tipo_id == tipo_dispositivo.GetHashCode()
+                        where dispositivos.tipo_id == tipo
                         select dispositivos).Take(limit);
             }
             else

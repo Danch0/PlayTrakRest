@@ -41,13 +41,18 @@ namespace PlayTrackRest.Models
             set
             {
                 _tipo_id = value;
-                this.Tipo = (TiposDispositivo)Enum.ToObject(typeof(TiposDispositivo), _tipo_id);
+                this.TiposDispositivo = (TiposDispositivo)Enum.ToObject(typeof(TiposDispositivo), _tipo_id);
+                this.Tipo = this.TiposDispositivo.ToString();
             }
         }
         /// <summary>
-        /// Representa una coleccion de REGISTO_USOS del dispositivo
+        /// 
         /// </summary>
-        public List<RegistroUsosModel> Registro_usos { get; set; }
+        public string Tipo { get; private set; }
+        /// <summary>
+        /// Representa una coleccion de REGISTRO_USOS del dispositivo
+        /// </summary>
+        public List<RegistroUsosModel> RegistroUsos { get; set; }
         /// <summary>
         /// Id del tipo de dispositivo.
         /// </summary>
@@ -55,7 +60,7 @@ namespace PlayTrackRest.Models
         /// <summary>
         /// Tipo segun el enum
         /// </summary>
-        internal TiposDispositivo Tipo { get; set; }
+        internal TiposDispositivo TiposDispositivo { get; set; }
         /// <summary>
         /// Instancia de la interfas para usar log4net
         /// </summary>
@@ -69,7 +74,7 @@ namespace PlayTrackRest.Models
             nombre = null;
             registro = null;
             Componentes = new List<ComponentesModel>();
-            Registro_usos = new List<RegistroUsosModel>();
+            RegistroUsos = new List<RegistroUsosModel>();
         }
         /// <summary>
         /// Obtiene los n primeros dispositivos.
@@ -117,7 +122,7 @@ namespace PlayTrackRest.Models
                         }
                         if (dispositivo.REGISROS_USOS != null)
                         {
-                            dispositivo_temp.Registro_usos = BaseModel.GetModelList<RegistroUsosModel>(dispositivo.REGISROS_USOS, new List<RegistroUsosModel>(), new RegistroUsosModel());
+                            dispositivo_temp.RegistroUsos = BaseModel.GetModelList<RegistroUsosModel>(dispositivo.REGISROS_USOS, new List<RegistroUsosModel>(), new RegistroUsosModel());
                             //foreach (REGISROS_USOS registro in dispositivo.REGISROS_USOS)
                             //{
                             //    RegistroUsosModel registro_temp = BaseModel.GetModel<RegistroUsosModel>(registro, new RegistroUsosModel());

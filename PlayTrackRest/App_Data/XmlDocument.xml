@@ -647,9 +647,19 @@
             Representa una coleccion de COMPONENTES del dispositivo
             </summary>
         </member>
-        <member name="P:PlayTrackRest.Models.DispositivosModel.Registro_usos">
+        <member name="P:PlayTrackRest.Models.DispositivosModel.tipo_id">
             <summary>
-            Representa una coleccion de REGISTO_USOS del dispositivo
+            Id del tipo de dispositivo.
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.Tipo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PlayTrackRest.Models.DispositivosModel.RegistroUsos">
+            <summary>
+            Representa una coleccion de REGISTRO_USOS del dispositivo
             </summary>
         </member>
         <member name="P:PlayTrackRest.Models.DispositivosModel._tipo_id">
@@ -657,12 +667,7 @@
             Id del tipo de dispositivo.
             </summary>
         </member>
-        <member name="P:PlayTrackRest.Models.DispositivosModel.tipo_id">
-            <summary>
-            Id del tipo de dispositivo.
-            </summary>
-        </member>
-        <member name="P:PlayTrackRest.Models.DispositivosModel.Tipo">
+        <member name="P:PlayTrackRest.Models.DispositivosModel.TiposDispositivo">
             <summary>
             Tipo segun el enum
             </summary>
