@@ -56,10 +56,8 @@ GO
 
 ## Tabla de rutas para el API:
 
-| Verbo| URL| Descripción|
-
-| ----- | ---- | ---- |
-
+| Verbo | URL | Descripción |
+| --- | --- | --- |
 | GET | api/Dispositivos | Obtiene todos los dispositivo |
 | POST | api/Dispositivos | Agreg nuevo dispositivo |
 | GET | api/Tragamonedas | Obtiene los dispositivos tipo tragamonedas |
@@ -70,7 +68,7 @@ GO
  Para información detallada de cada clase y/o ruta consultar http://playtrackrest.azurewebsites.net/Help.
 
 ### Metodo: GET api/Dispositivos
-* Ruta: http://playtrackrest.azurewebsites.net/api/Dispositivos
+* Ruta: [playtrackrest.azurewebsites.net/api/Dispositivos](http://playtrackrest.azurewebsites.net/Help/Api/GET-api-Dispositivos).
 * Parametros recibidos: Ninguno.
 * Descripción: Retorna un JSON de la clase RespuestaBase como se muestra a continuación, en el campo Datos contendra el arreglo de dispositivos de la clase DispositivosModel.
 ```
@@ -120,7 +118,7 @@ GO
 ```
 
 ### Metodo: POST api/Dispositivos
-* Ruta: http://playtrackrest.azurewebsites.net/api/Dispositivos
+* Ruta: [playtrackrest.azurewebsites.net/api/Dispositivos](http://playtrackrest.azurewebsites.net/Help/Api/POST-api-Dispositivos).
 * Parametros recibidos: JSON de la clase DispositivosModel, solo acepta arreglo de componenetes de la clase ComponentesModel.
 ```
 {
@@ -171,11 +169,11 @@ GO
 ```
 
 ### Metodo: GET api/Tragamonedas
-* Ruta: http://playtrackrest.azurewebsites.net/api/Tragamonedas
+* Ruta: [playtrackrest.azurewebsites.net/api/Dispositivos](http://playtrackrest.azurewebsites.net/Help/Api/GET-api-Tragamonedas).
 * Parametros recibidos: Ninguno.
 * Descripción: Retorna un JSON con la misma estructura que el metodo api/Dispositivos.
 
 ### Metodo: GET api/Blackjack
-* Ruta: http://playtrackrest.azurewebsites.net/api/Blackjack
+* Ruta: [playtrackrest.azurewebsites.net/api/Dispositivos](http://playtrackrest.azurewebsites.net/Help/Api/GET-api-BlackJack).
 * Parametros recibidos: Ninguno.
 * Descripción: Retorna un JSON con la misma estructura que el metodo api/Dispositivos.
